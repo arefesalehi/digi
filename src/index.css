@@ -1,4 +1,11 @@
 @import "tailwindcss";
+@import "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 
 
 @font-face {
@@ -13,8 +20,21 @@
   
   * {
     box-sizing: border-box;
-    padding: 0;
+    
     margin: 0 ;
     border:0;
     font-family: shabnam;
   }
+
+
+  body, html{
+    direction: rtl;
+
+  }
+
+
+  .mycontainer{
+      width:80%;
+      margin: 0 auto;
+  }
+

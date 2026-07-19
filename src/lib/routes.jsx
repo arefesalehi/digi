@@ -1,6 +1,4 @@
 import AppLayout from '../components/layouts/AppLayout'
-
-
 import Home from '../pages/home/Home'
 import Article from '../pages/article/article'
 import AboutUs from '../pages/about-us/AboutUs'
