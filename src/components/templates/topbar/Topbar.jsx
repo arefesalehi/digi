@@ -46,9 +46,10 @@ const Topbar = () => {
           <span className="flex justify-center items-center bg-blue-600 rounded w-12 h-12">
             <FaRegHeart className="text-white" />
           </span>
-          <button className="flex justify-center items-center bg-blue-600 p-3 rounded">
+          <button className="flex justify-center items-center gap-2 bg-blue-600 p-3 rounded">
             {' '}
-            <p className='text-whiteg'>ورود و عضویت</p> <FaUser className="text-white" />
+            <FaUser className="text-white" />
+            <p className='text-white'>ورود و عضویت</p> 
           </button>
         </div>
       </div>
