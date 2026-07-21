@@ -15,7 +15,13 @@ const AccardionItems = ({ label, content }) => {
         </span>
       </div>
 
-      <div className={`${isOpen ? 'p-8 ' : 'invisible h-0 opacity-0 overflow-hidden whitespace-nowrap'} trasition-all duration-300  text-justify`}>
+      <div
+        className={`${
+          isOpen
+            ? 'p-8 '
+            : 'invisible h-0 opacity-0 overflow-hidden whitespace-nowrap'
+        } trasition-all duration-300  text-justify`}
+      >
         {content}
       </div>
     </div>
