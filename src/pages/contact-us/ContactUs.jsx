@@ -5,50 +5,16 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import contactusSchema from '../../validators/contactus'
 import { validate } from '../../validators'
+import Usecontactus from '../../hooks/Usecontactus'
 
 const ContactUs = () => {
-  const [isSubmitting, setIsSubmitting]=useState(false)
-  const [form, setForm] = useState({
+  const {form,changeHandler,isSubmitting,submitHandler} = Usecontactus({
     name: '',
     phone: '',
     email: '',
     content: '',
     subject: '',
   })
-
-  const changeHandler = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const submitHandler = async (e) => {
-    e.preventDefault()
-
-  if(!validate(contactusSchema, form )) return
-    
-     setIsSubmitting(true)
-    const response = axios.post('https://shopino.iran.liara.run/v1/contact-us', form)
-
-    toast.promise(response, {
-        loading: 'درحال ارسال پیام...',
-        success: () => {
-            setForm({
-            name: '',
-            phone: '',
-            email:'',
-            content: '',
-            subject: '',
-          })
-           setIsSubmitting(false)
-          return 'پیام با موفقیت ثبت شد'
-          
-        },
-        
-        error: (error)=>{
-              setIsSubmitting(false)
-         return error.response?.data?.message || 'ارسال پیام با شکست مواجه شد'
-        },
-      })
-  }
 
   return (
     <div className="mycontainer">

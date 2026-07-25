@@ -1,18 +1,19 @@
-const InputField = ({label,onChange, placeholder, value, name, type = "text",}) => {
-
-
-  const cardClassName = "flex flex-col w-full mt-5 justify-between gap-3 w-1/2  ";
+const InputField = ({
+  label,
+  onChange,
+  placeholder,
+  value,
+  name,
+  type = "text",
+}) => {
+  const cardClassName =
+    "flex flex-col w-full mt-5 justify-between gap-3 w-1/2  ";
 
   const uniqueID = crypto.randomUUID();
 
-
-  
   return (
     <div className={cardClassName}>
-      <label
-        htmlFor={uniqueID}
-        className="mb-2 text-sm select-none"
-      >
+      <label htmlFor={uniqueID} className="mb-2 text-sm select-none">
         {label}:
       </label>
       <input
