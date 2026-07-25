@@ -1,8 +1,7 @@
-import { BsBasket } from 'react-icons/bs'
-import { MdOutlineNotificationsActive } from 'react-icons/md'
-import { FaRegHeart } from 'react-icons/fa'
-import { FaUser } from 'react-icons/fa6'
-
+import { BsBasket } from "react-icons/bs";
+import { MdOutlineNotificationsActive } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 const Topbar = () => {
   return (
     <div className="bg-[#f2f5fc]">
@@ -47,14 +46,14 @@ const Topbar = () => {
             <FaRegHeart className="text-white" />
           </span>
           <button className="flex justify-center items-center gap-2 bg-blue-600 p-3 rounded">
-            {' '}
+            {" "}
             <FaUser className="text-white" />
-            <p className='text-white'>ورود و عضویت</p> 
+            <p className="text-white">ورود و عضویت</p>
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Topbar
+export default Topbar;
