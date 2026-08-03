@@ -3,18 +3,20 @@ import Header from '../common/header/Header'
 import Footer from '../common/footer/Footer'
 import Topbar from '../templates/topbar/Topbar'
 import { Toaster } from 'sonner'
-
+import AuthProvider from '../../context/AuthProvider'
 
 const AppLayout = () => {
   return (
     <>
-       <Toaster position='top-right'/>
-      <Topbar/>
-      <Header />
-      
-      <Outlet />
-   
-      <Footer />
+      <AuthProvider>
+        <Toaster position="top-right" />
+        <Topbar />
+        <Header />
+
+        <Outlet />
+
+        <Footer />
+      </AuthProvider>
     </>
   )
 }

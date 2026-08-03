@@ -1,22 +1,26 @@
 import {z} from 'zod'
 
-const sendOTpSchema = z.object({
+export const sendOTpSchema = z.object({
     phone:z
     .string()
     .trim()
-    .regex()
+    .regex(/^09\d{9}$/, { message: "شماره موبایل معتبر نیست" }),
+
 })
 
 
-const verifyOtpSchema= z.object({
+ export const verifyOtpSchema= z.object({
    phone:z
     .string()
     .trim()
-    .regex(),
+    .regex(/^09\d{9}$/, { message: "شماره موبایل معتبر نیست" }),
 
-    otp:z
+
+
+    otp: z
     .string()
     .trim()
-    .length(4 , message:تعداد کد تایید باید 4 کاراکتر باشد.)
+    .length(4, { message: "کد تایید باید 4 رقمی باشد" }),
 
 })
+

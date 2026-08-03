@@ -2,7 +2,13 @@ import { BsBasket } from "react-icons/bs";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
+import { Link } from "react-router";
+import { useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
 const Topbar = () => {
+  const {isLoading, user} = useContext(AuthContext)
+
+
   return (
     <div className="bg-[#f2f5fc]">
       <div className="flex justify-between items-center w-full h-30 mycontainer">
@@ -46,9 +52,16 @@ const Topbar = () => {
             <FaRegHeart className="text-white" />
           </span>
           <button className="flex justify-center items-center gap-2 bg-blue-600 p-3 rounded">
-            {" "}
+          
+
+           
             <FaUser className="text-white" />
-            <p className="text-white">ورود و عضویت</p>
+             {
+              isLoading ? <p className="text-white">در حال بارگزاری</p> : user ? <Link to='/profile' className="text-white"> پنل کاربری</Link> :     <Link to='/auth' className="text-white">ورود و عضویت</Link>
+            
+
+            }
+        
           </button>
         </div>
       </div>

@@ -1,14 +1,15 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import Description from '../../components/common/description/Description'
-import InputField from '../../components/templates/contactus/InputFields'
-import axios from 'axios'
-import { toast } from 'sonner'
-import contactusSchema from '../../validators/contactus'
-import { validate } from '../../validators'
+// import InputField from '../../components/templates/contactus/InputFields'
+// import axios from 'axios'
+// import { toast } from 'sonner'
+// import contactusSchema from '../../validators/contactus'
+// import { validate } from '../../validators'
 import Usecontactus from '../../hooks/Usecontactus'
-
+import InputField from '../../components/templates/contactus/InputFields'
+import Map from '../../components/templates/contactus/Map'
 const ContactUs = () => {
-  const {form,changeHandler,isSubmitting,submitHandler} = Usecontactus({
+  const { form, changeHandler, isSubmitting, submitHandler } = Usecontactus({
     name: '',
     phone: '',
     email: '',
@@ -79,13 +80,13 @@ const ContactUs = () => {
           <div className="flex justify-end items-center gap-3 mt-5 p-5">
             <p className="text-red-600 underline">انصراف</p>
             <button
-            disabled={isSubmitting}
+              disabled={isSubmitting}
               onClick={submitHandler}
-              className={`bg-blue-500 p-2 rounded text-white ${isSubmitting ? 'opacity-50  cursor-not-allowed' : ''}`}
+              className={`bg-blue-500 p-2 rounded text-white ${
+                isSubmitting ? 'opacity-50  cursor-not-allowed' : ''
+              }`}
             >
-
-              {!isSubmitting ? 'ثبت و ارسال':'در حال ارسال'}
-        
+              {!isSubmitting ? 'ثبت و ارسال' : 'در حال ارسال'}
             </button>
           </div>
         </span>
@@ -98,11 +99,9 @@ const ContactUs = () => {
         </span>
       </div>
 
-      <Description
-        title="مراجعه حضوری"
-        desc=" شما میتوانید به صورت حضوری در یکی از دفاتر رسمی سیبیکالا مراجعه
-          فرماییدو با همکاران ما در ارتباط باشید."
-      />
+      <div className="mb-10">
+        <Map />
+      </div>
     </div>
   )
 }
