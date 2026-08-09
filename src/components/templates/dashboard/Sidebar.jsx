@@ -27,7 +27,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="relative flex flex-col justify-between h-full">
       <div className="mt-10">
         <NavbarItems
           title="پیشخوان"

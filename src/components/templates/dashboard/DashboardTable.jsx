@@ -1,4 +1,6 @@
 
+
+import { useState } from 'react'
 import Table from './Table'
 import TableBody from './TableBody'
 import TableCell from './TableCell'
@@ -6,15 +8,23 @@ import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import TableToolbar from './TableToolbar'
 import { FiPlus } from 'react-icons/fi'
+import DashboardDrawer from './DashboardDrawer'
 
 const DashboardTable = () => {
+  
+  const [drawerIsOpen, setDrawerIsOpen]=useState(true)
+
+  const toggleDrawer=()=>{
+    setDrawerIsOpen((prev)=>!prev)
+  }
+
   return (
     <>
-      <Table>
+      <Table >
         <TableToolbar>
           <h1 className="font-bold text-lg">تمامی محصولات</h1>
 
-          <div className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm">
+          <div onClick={toggleDrawer}  className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm">
             <FiPlus />
             ایجاد محصول
           </div>
@@ -46,6 +56,8 @@ const DashboardTable = () => {
           </TableRow>
         </TableBody>
       </Table>
+
+      <DashboardDrawer  isOpen={drawerIsOpen} onClose={toggleDrawer} />
 
     </>
   )

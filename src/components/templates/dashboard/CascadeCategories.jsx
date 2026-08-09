@@ -1,0 +1,45 @@
+import { useState } from 'react'
+
+const CascadeCategories = ({ allCategories }) => {
+  const [path, setPath] = useState([])
+
+  const levels = [allCategories, ...path.map((cat) => cat.subCategories || [])]
+
+  const handleSelect = (levelIndex, id) => {
+    const options = levels[levelIndex]
+    const node = options.find((category) => category._id === id)
+
+    const newPath = [...path.slice(0, levelIndex), node]
+    setPath(newPath)
+  }
+  return (
+    <div className="space-y-3">
+      {levels.map((options, index) => {
+        if (!options || options.length === 0) {
+          return null
+        }
+
+        return (
+          <select
+            key={index}
+            value={path[index]?._id || ''}
+            onChange={(e) => handleSelect(index, e.target.value)}
+            className="mx-8 border border-gray-300 rounded w-[83%] h-9 text-xs"
+          >
+            <option value="" disabled>
+              انتخاب دسته‌بندی
+            </option>
+
+            {options?.map((option) => (
+              <option key={option._id} value={option._id}>
+                {option.title}
+              </option>
+            ))}
+          </select>
+        )
+      })}
+    </div>
+  )
+}
+
+export default CascadeCategories
