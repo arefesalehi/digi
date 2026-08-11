@@ -12,7 +12,7 @@ import DashboardDrawer from './DashboardDrawer'
 
 const DashboardTable = () => {
   
-  const [drawerIsOpen, setDrawerIsOpen]=useState(true)
+  const [drawerIsOpen, setDrawerIsOpen]=useState(false)
 
   const toggleDrawer=()=>{
     setDrawerIsOpen((prev)=>!prev)
@@ -24,7 +24,7 @@ const DashboardTable = () => {
         <TableToolbar>
           <h1 className="font-bold text-lg">تمامی محصولات</h1>
 
-          <div onClick={toggleDrawer}  className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm">
+          <div onClick={toggleDrawer}  className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm cursor-pointer">
             <FiPlus />
             ایجاد محصول
           </div>
@@ -57,7 +57,7 @@ const DashboardTable = () => {
         </TableBody>
       </Table>
 
-      <DashboardDrawer  isOpen={drawerIsOpen} onClose={toggleDrawer} />
+      <DashboardDrawer  toggleDrawer={toggleDrawer} isOpen={drawerIsOpen} onClose={toggleDrawer} />
 
     </>
   )

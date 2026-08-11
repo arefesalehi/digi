@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router'
 import Sidebar from '../templates/dashboard/Sidebar'
 import AuthProvider from '../../context/AuthProvider'
+import { Toaster } from 'sonner'
 
 
 const CmsLayout = () => {
   return (
     <AuthProvider>
-    
+     <Toaster position="top-right" />
       <div className="flex">
         <div className="bg-gray-50 border-2 border-gray-300 w-80 h-svh">
           

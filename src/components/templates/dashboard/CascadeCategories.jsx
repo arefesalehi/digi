@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const CascadeCategories = ({ allCategories }) => {
+const CascadeCategories = ({ allCategories , onChange}) => {
   const [path, setPath] = useState([])
 
   const levels = [allCategories, ...path.map((cat) => cat.subCategories || [])]
@@ -11,6 +11,9 @@ const CascadeCategories = ({ allCategories }) => {
 
     const newPath = [...path.slice(0, levelIndex), node]
     setPath(newPath)
+
+    const isLeaf =!node.subCategories || node.subCategories.length===0
+    onChange(isLeaf? node : null)
   }
   return (
     <div className="space-y-3">
