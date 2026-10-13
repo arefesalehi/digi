@@ -29,7 +29,7 @@ const SellerFields = ({ sellers, onAdd, onChange, onRemove }) => {
 
       {sellers.map((seller, index) => (
         <div key={index} className="flex items-center gap-2 mx-8 text-xs">
-          <div>
+          <div className="w-40" >
             <AsyncSelect
               cacheOptions
               defaultOptions

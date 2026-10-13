@@ -32,14 +32,14 @@ const DashboardDrawer = ({ isOpen, onClose , toggleDrawer}) => {
 
   useEffect(() => {
     if (!isOpen) {
-      resetForm()
+      resetForm
     }
   }, [isOpen, resetForm])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!form.name.trim() || !form.slug.trim() || !form.description.trim()) {
-      setError('عنوان و لینک محصول الزامی هستن')
+      setError(<p className='py-5 pr-10 text-red-600 text-sm'>عنوان و لینک محصول الزامی هستن</p>)
       return
     }
 
@@ -64,7 +64,7 @@ const DashboardDrawer = ({ isOpen, onClose , toggleDrawer}) => {
   }
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose} title="ایجاد محصول">
+    <Drawer  isOpen={isOpen} onClose={onClose} title="ایجاد محصول">
       <DrawerInput
         className="mt-10"
         label="عنوان محصول"

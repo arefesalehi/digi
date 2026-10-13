@@ -4,6 +4,7 @@ import { AiOutlineHome } from 'react-icons/ai'
 import { AiOutlineProduct } from 'react-icons/ai'
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
+import { BiSolidCategory } from "react-icons/bi";
 
 import { LuStore } from 'react-icons/lu'
 import { BiDollarCircle } from 'react-icons/bi'
@@ -35,6 +36,15 @@ const Sidebar = () => {
           bgIconColor="bg-gray-200"
           bgIcon="text-gray-900"
           href="/dashboard/moderator/home"
+        />
+
+
+         <NavbarItems
+          title="دسته بندی"
+          icon={<BiSolidCategory />}
+          bgIconColor="bg-pink-200"
+          bgIcon="text-gray-900"
+          href="/dashboard/moderator/category"
         />
         <NavbarItems
           title="محصولات"

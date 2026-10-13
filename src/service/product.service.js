@@ -25,3 +25,15 @@ export const getAllProducts = async (params) => {
 };
 
 
+
+export const removeProducts = async (id) => {
+
+  
+  const { data } = await api.delete(`/products/${id}` );
+
+  return data;
+};
+
+
+
+
