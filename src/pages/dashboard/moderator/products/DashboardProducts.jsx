@@ -1,16 +1,13 @@
-import DashboardLabel from "../../../../components/templates/dashboard/DashboardLabel"
-import DashboardTable from "../../../../components/templates/dashboard/DashboardTable"
+import DashboardLabel from '../../../../components/templates/dashboard/DashboardLabel'
+import DashboardTable from '../../../../components/templates/dashboard/DashboardTable'
 
 const DashboardProducts = () => {
   return (
-   <>
-    <DashboardLabel  title='مدیریت محصولات فروشگاه'/>
+    <>
+      <DashboardLabel title="مدیریت محصولات فروشگاه" />
 
-    <DashboardTable/>
-
-    
-   
-   </>
+      <DashboardTable />
+    </>
   )
 }
 

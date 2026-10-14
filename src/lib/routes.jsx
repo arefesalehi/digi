@@ -16,6 +16,7 @@ import * as AuthService from '../service/auth.service'
 import Forbidden from '../pages/forbidden/Forbidden'
 import NotFound from '../pages/notfound/NotFound'
 import DashboardCategory from '../pages/dashboard/moderator/category/DashboardCategory'
+import DashboardUsers from '../pages/dashboard/moderator/users/DashboardUsers'
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,8 @@ const router = createBrowserRouter([
           { path: 'order', element: <DashboardOrder /> },
           { path: 'products', element: <DashboardProducts /> },
            { path: 'category', element: <DashboardCategory /> },
+           { path: 'users', element: <DashboardUsers/> },
+
         ],
       },
     ],
