@@ -6,18 +6,16 @@ import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import TableToolbar from './TableToolbar'
 import { FiPlus } from 'react-icons/fi'
-import DashboardDrawer from './DashboardDrawer'
-
 import { FaTrashCan } from 'react-icons/fa6'
 import { MdEdit } from 'react-icons/md'
 import Confirm from '../../common/dashboard/Confirm'
-
 import { toast } from 'sonner'
 import useCategories from '../../../hooks/useCategories'
 import { deleteCategory } from '../../../service/categories.service'
+import CreateCategoryModal from './CreateCategoryModal'
 
 const DashboardCategoryTable = () => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false)
+
   const {
     allCategories,
     isLoading,
@@ -27,10 +25,9 @@ const DashboardCategoryTable = () => {
 
   const [deletingCategory, setDeletingCategory] = useState(null)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [isOpenForm, setIsOpenForm] = useState(false);
 
-  const toggleDrawer = () => {
-    setDrawerIsOpen((prev) => !prev)
-  }
+
 
   const handleRemove = async () => {
     setIsDeleting(true)
@@ -54,7 +51,7 @@ const DashboardCategoryTable = () => {
           <h1 className="font-bold text-lg">تمامی دسته بندی ها</h1>
 
           <div
-            onClick={toggleDrawer}
+           onClick={() => setIsOpenForm(true)}
             className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm cursor-pointer"
           >
             <FiPlus />
@@ -141,11 +138,12 @@ const DashboardCategoryTable = () => {
         isLoading={isDeleting}
       />
 
-      <DashboardDrawer
-        toggleDrawer={toggleDrawer}
-        isOpen={drawerIsOpen}
-        onClose={toggleDrawer}
-      />
+
+
+
+      <CreateCategoryModal isOpen={isOpenForm}  onClose={()=>setIsOpenForm(false)}  />
+
+    
     </>
   )
 }

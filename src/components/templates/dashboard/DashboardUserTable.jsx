@@ -14,6 +14,8 @@ import { toast } from 'sonner'
 import { useUsers } from '../../../hooks/useUsers'
 import { toPersianDate } from '../../../helpers/date'
 import { BanUsers } from '../../../service/user.service'
+import Pagination from '../../common/pagination/Pagination'
+
 
 
 const roleLabels={
@@ -63,6 +65,7 @@ const DashboardUsersTable = () => {
           <h1 className="font-bold text-lg">تمامی کاربران</h1>
 
           <div
+            
             onClick={toggleDrawer}
             className="flex items-center gap-1 bg-blue-600 px-3 py-2 rounded text-white text-sm cursor-pointer"
           >
@@ -143,25 +146,10 @@ const DashboardUsersTable = () => {
         </TableBody>
       </Table>
 
-      <div className="flex justify-center items-center gap-5 mb-10">
-        <button
-          className="bg-blue-600 p-2 rounded text-white text-sm"
-          disabled={page <= 1}
-          onClick={() => setPage((prev) => prev - 1)}
-        >
-          قبلی
-        </button>
-        <span>
-          صفحه {pagination?.page} از {pagination?.totalPages}
-        </span>
-        <button
-          className="bg-blue-600 p-2 rounded text-white text-sm"
-          disabled={page >= pagination?.totalPages}
-          onClick={() => setPage((prev) => prev + 1)}
-        >
-          بعدی
-        </button>
-      </div>
+ 
+      <Pagination  page={page}  pagination={pagination} setPage={setPage}   />
+
+      
 
       <Confirm
         isOpen={!!banningUsers}
