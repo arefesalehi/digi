@@ -1,9 +1,9 @@
-import axios from "axios";
-import React, { useState } from "react";
+
 import { toast } from "sonner";
 import { validate } from "../validators";
 import contactusSchema from "../validators/contactus";
 import { sendContactusMessage } from "../service/contactus.service";
+import { useState } from "react";
 
 const Usecontactus = (initialForm) => {
   const [isSubmitting, setIsSubmitting] = useState(false);

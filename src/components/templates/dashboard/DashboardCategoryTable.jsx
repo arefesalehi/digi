@@ -141,7 +141,7 @@ const DashboardCategoryTable = () => {
 
 
 
-      <CreateCategoryModal isOpen={isOpenForm}  onClose={()=>setIsOpenForm(false)}  />
+      <CreateCategoryModal  onSuccess={refetch} isOpen={isOpenForm}  onClose={()=>setIsOpenForm(false)}  />
 
     
     </>
